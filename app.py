@@ -32,6 +32,9 @@ btn_1=st.sidebar.button("click here for batting overview")
 if btn_1:
     st.write("_based on ipl data from 2008 to 2021._")
     st.title("***BATTING OVERVIEW***")
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.title(selcted)
+    st.markdown("<hr>", unsafe_allow_html=True)
     grp=data.groupby("batter")
     six=grp.is_six.sum()[selcted]
     four=grp.is_four.sum()[selcted]
