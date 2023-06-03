@@ -16,7 +16,7 @@ data['is_three']= data['batsman_run'].apply(lambda x: True if x == 3 else False)
 data['is_two']= data['batsman_run'].apply(lambda x: True if x == 2 else False)
 data['is_one']= data['batsman_run'].apply(lambda x: True if x == 1 else False)
 # adding image and title
-img = Image.open('C:\\Users\\RUPAK\\Desktop\\data science project\\download.jpeg')
+img = Image.open('download.jpeg')
 st.image(image=img,width=200)
 st.title("THE BIG IPL ANALYSIS")
 st.text("BY Rupak Ghanghas")
