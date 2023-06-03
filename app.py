@@ -86,7 +86,7 @@ if btn_2:
     st.write("_based on ipl data from 2008 to 2021._")
     st.title("***BOWLING OVERVIEW***")
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.title(selcted)
+    st.title(selected_2)
     st.markdown("<hr>", unsafe_allow_html=True)
     cond=data_3[data_3.Name==selected_2]
     bowling_table={
