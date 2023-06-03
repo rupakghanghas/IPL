@@ -10,6 +10,9 @@ data_3=pd.read_csv('alldatabowling.csv')
 data_3["economy rate"]=data_3['Runs_Conceded']/data_3['Over']
 data_3["average"]=data_3['Runs_Conceded']/data_3['Wickets']
 data_3["strike rate"]=((data_3['Over'])*6)/data_3['Wickets']
+data_3['average'] = data_3['average'].replace(np.inf, 0)
+data_3['economy rate'] = data_3['economy rate'].replace(np.inf, 0)
+data_3['strike rate'] = data_3['strike rate'].replace(np.inf, 0)
 data['is_six']= data['batsman_run'].apply(lambda x: True if x == 6 else False)
 data['is_four']= data['batsman_run'].apply(lambda x: True if x == 4 else False)
 data['is_three']= data['batsman_run'].apply(lambda x: True if x == 3 else False)
