@@ -84,6 +84,10 @@ selected_2=st.sidebar.selectbox('CHOOSE PLAYER FOR BOWLING OVERVIEW',options_2)
 btn_2=st.sidebar.button("click here for bowling overview")   
 if btn_2:
     st.write("_based on ipl data from 2008 to 2021._")
+    st.title("***BOWLING OVERVIEW***")
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.title(selcted)
+    st.markdown("<hr>", unsafe_allow_html=True)
     cond=data_3[data_3.Name==selected_2]
     bowling_table={
         "total  number of overs bowled ":cond.Over.astype(int),
