@@ -124,8 +124,8 @@ if btn_2:
 
     # Create a bar graph
     fig, ax = plt.subplots()
-    ax.bar(player1_name, player1_economy,width=0.1, label=player1_name)
-    ax.bar(player2_name, player2_economy,width=0.1, label=player2_name)
+    ax.bar(player1_name, player1_avg,width=0.1, label=player1_name)
+    ax.bar(player2_name, player2_avg,width=0.1, label=player2_name)
 
     # Customize the graph
     ax.set_xlabel('Player')
@@ -148,8 +148,8 @@ if btn_2:
 
     # Create a bar graph
     fig, ax = plt.subplots()
-    ax.bar(player1_name, player1_economy,width=0.1, label=player1_name)
-    ax.bar(player2_name, player2_economy,width=0.1, label=player2_name)
+    ax.bar(player1_name, player1_stk,width=0.1, label=player1_name)
+    ax.bar(player2_name, player2_stk,width=0.1, label=player2_name)
 
     # Customize the graph
     ax.set_xlabel('Player')
