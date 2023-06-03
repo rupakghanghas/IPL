@@ -4,9 +4,9 @@ from PIL import Image
 import matplotlib.pyplot as plt
 st.set_page_config(page_title="my IPL analysis")
 # importing data
-data=pd.read_csv('C:\\Users\\RUPAK\\Desktop\\data science project\\IPL_Ball_by_Ball_2008_2022.csv')
-data_2=pd.read_csv('C:\\Users\\RUPAK\\Desktop\\data science project\\IPL_Matches_2008_2022.csv')
-data_3=pd.read_csv('C:\\Users\\RUPAK\\Desktop\\data science project\\alldatabowling.csv')
+data=pd.read_csv('IPL_Ball_by_Ball_2008_2022.csv')
+data_2=pd.read_csv('IPL_Matches_2008_2022.csv')
+data_3=pd.read_csv('alldatabowling.csv')
 data_3["economy rate"]=data_3['Runs_Conceded']/data_3['Over']
 data_3["average"]=data_3['Runs_Conceded']/data_3['Wickets']
 data_3["strike rate"]=((data_3['Over'])*6)/data_3['Wickets']
