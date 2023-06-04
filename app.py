@@ -8,7 +8,6 @@ st.set_page_config(page_title="my IPL analysis")
 data=pd.read_csv('IPL_Ball_by_Ball_2008_2022.csv')
 data_2=pd.read_csv('IPL_Matches_2008_2022.csv')
 data_3=pd.read_csv('alldatabowling.csv')
-data_4=pd.read_csv("batter.csv")
 data_3["economy rate"]=data_3['Runs_Conceded']/data_3['Over']
 data_3["average"]=data_3['Runs_Conceded']/data_3['Wickets']
 data_3["strike rate"]=((data_3['Over'])*6)/data_3['Wickets']
@@ -71,6 +70,7 @@ if btn_1:
     ax.axis('equal') 
     plt.title('Pie Chart')
     st.pyplot(fig)
+    st.markdown("<hr>", unsafe_allow_html=True)
     # PERFORMANCE
     mom=data_2.Player_of_Match
     if selcted in list(mom):
@@ -79,6 +79,7 @@ if btn_1:
         var=0
     st.subheader(f"Total Man of the match title won:{var}")
     st.markdown("<hr>", unsafe_allow_html=True)
+    data_4=pd.read_csv("batter.csv")
     batting_avg=data_4[data_4['batter']==selcted].squeeze()
     avg=batting_avg['avg'].round(2)
     st.subheader(f"average :{avg}")
@@ -110,7 +111,7 @@ if btn_2:
     st.header(f"economy rate of {selected_2} is: {float(cond['economy rate'])}")
     # Sample data
     player1_name = selected_2
-    player1_economy =cond['economy rate']
+    player1_economy =cond['economy rate'].round(2)
 
     player2_name = 'Average economy rate'
     player2_economy = data_3['economy rate'].mean()
@@ -135,7 +136,7 @@ if btn_2:
     st.header(f"bowling average of {selected_2} is: {float(cond['average'])}")
     # Sample data
     player1_name = selected_2
-    player1_avg =cond['average']
+    player1_avg =cond['average'].round(2)
 
     player2_name = 'mean of bowling average of all players '
     player2_avg = data_3['average'].mean()
@@ -157,7 +158,7 @@ if btn_2:
     st.header(f"bowling strike rate of {selected_2} is: {float(cond['strike rate'])}")
     # Sample data
     player1_name = selected_2
-    player1_stk =cond['strike rate']
+    player1_stk =cond['strike rate'].round(2)
 
     player2_name = 'average bowling strike rate '
     player2_stk = data_3['strike rate'].mean()
