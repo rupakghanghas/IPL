@@ -73,13 +73,13 @@ if btn_1:
     st.pyplot(fig)
     # PERFORMANCE
     mom=data_2.Player_of_Match
-    if selected in list(mom):
-        var=(mom.value_counts()[selected])
+    if selcted in list(mom):
+        var=(mom.value_counts()[selcted])
     else:
         var=0
     st.subheader(f"Total Man of the match title won:{var}")
     st.markdown("<hr>", unsafe_allow_html=True)
-    batting_avg=data_4[data_4['batter']==selected].squeeze()
+    batting_avg=data_4[data_4['batter']==selcted].squeeze()
     avg=batting_avg['avg'].round(2)
     st.subheader(f"average :{avg}")
     st.markdown("<hr>", unsafe_allow_html=True)
