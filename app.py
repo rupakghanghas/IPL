@@ -8,6 +8,7 @@ st.set_page_config(page_title="my IPL analysis")
 data=pd.read_csv('IPL_Ball_by_Ball_2008_2022.csv')
 data_2=pd.read_csv('IPL_Matches_2008_2022.csv')
 data_3=pd.read_csv('alldatabowling.csv')
+data_4=pd.read_csv("batter.csv")
 data_3["economy rate"]=data_3['Runs_Conceded']/data_3['Over']
 data_3["average"]=data_3['Runs_Conceded']/data_3['Wickets']
 data_3["strike rate"]=((data_3['Over'])*6)/data_3['Wickets']
@@ -67,17 +68,23 @@ if btn_1:
     # Plotting the pie chart
     fig, ax = plt.subplots()
     ax.pie(values, labels=labels, autopct='%1.1f%%', startangle=90)
-    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+    ax.axis('equal') 
     plt.title('Pie Chart')
-    # Display the plot in Streamlit
     st.pyplot(fig)
     # PERFORMANCE
     mom=data_2.Player_of_Match
-    st.text(f"total number of man of the match title won by {selcted}")
-    if selcted in list(mom):
-        st.text(mom.value_counts()[selcted])
+    if selected in list(mom):
+        var=(mom.value_counts()[selected])
     else:
-        st.text("0")
+        var=0
+    st.subheader(f"Total Man of the match title won:{var}")
+    st.markdown("<hr>", unsafe_allow_html=True)
+    batting_avg=data_4[data_4['batter']==selected].squeeze()
+    avg=batting_avg['avg'].round(2)
+    st.subheader(f"average :{avg}")
+    st.markdown("<hr>", unsafe_allow_html=True)
+    stk=batting_avg['strike_rate'].round(2)
+    st.subheader(f"Batting Strike Rate :{stk}")
 
 options_2=data_3.Name
 selected_2=st.sidebar.selectbox('CHOOSE PLAYER FOR BOWLING OVERVIEW',options_2)
@@ -143,8 +150,6 @@ if btn_2:
     ax.set_ylabel('bowling average')
     ax.set_title('bowling average Comparison')
     ax.legend()
-
-    # Display the graph in Streamlit
     st.pyplot(fig)
 
     ############## bar graph for bowling strike rate ##################
@@ -167,8 +172,6 @@ if btn_2:
     ax.set_ylabel('bowling strike rate')
     ax.set_title('bowling strike rate Comparison')
     ax.legend()
-
-    # Display the graph in Streamlit
     st.pyplot(fig)
     
     
