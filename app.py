@@ -82,7 +82,7 @@ if btn_1:
     data_4=pd.read_csv("batter.csv")
     batting_avg=data_4[data_4['batter']==selcted].squeeze()
     avg=batting_avg['avg'].round(2)
-    st.subheader(f"average :{avg}")
+    st.subheader(f"Batting Average :{avg}")
     st.markdown("<hr>", unsafe_allow_html=True)
     stk=batting_avg['strike_rate'].round(2)
     st.subheader(f"Batting Strike Rate :{stk}")
@@ -108,7 +108,7 @@ if btn_2:
     st.table(df.melt())
     # #####################bar graph for economy rate###########################3
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.header(f"economy rate of {selected_2} is: {float(cond['economy rate'])}")
+    st.header(f"economy rate of {selected_2} is: {float(cond['economy rate'].round(2))}")
     # Sample data
     player1_name = selected_2
     player1_economy =cond['economy rate'].round(2)
@@ -133,7 +133,7 @@ if btn_2:
     
     ############## bar graph for bowling average ##################
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.header(f"bowling average of {selected_2} is: {float(cond['average'])}")
+    st.header(f"bowling average of {selected_2} is: {float(cond['average'].round(2))}")
     # Sample data
     player1_name = selected_2
     player1_avg =cond['average'].round(2)
@@ -155,7 +155,7 @@ if btn_2:
 
     ############## bar graph for bowling strike rate ##################
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.header(f"bowling strike rate of {selected_2} is: {float(cond['strike rate'])}")
+    st.header(f"bowling strike rate of {selected_2} is: {float(cond['strike rate'].round(2))}")
     # Sample data
     player1_name = selected_2
     player1_stk =cond['strike rate'].round(2)
